@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAAMVOX LOGIN</title>
+    <link rel="shortcut icon" href="img/R.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Montserrat, sans-serif;
+        }
+        body {
+            background: url(img/blur.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .login {
+            background-color: #252525;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            padding: 70px 50px;
+            font-size: larger;
+            text-align: center;
+            position: absolute;
+            top: -100%;
+            animation: slideDown 0.7s forwards;
+        }
+        @keyframes slideDown {
+            0% {
+                top: -100%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            70% {
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        input {
+            height: 45px;
+            width: 250px;
+            padding: 0 20px;
+            border-radius: 2px;
+            background-color: transparent;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+            font-size: medium;
+            color: white;
+            border-color: #aeff58;
+        }
+        .btn {
+            height: 50px;
+            width: 250px;
+            border-radius: 2px;
+            font-size: 18px;
+            font-weight: 500;
+            outline: none;
+            border: none;
+            color: #252525;
+            background-color: #aeff58;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        }
+        p {
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background-color: gray;
+            color: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            text-align: center;
+            z-index: 1000;
+            animation: slideDown 0.7s forwards;
+        }
+        .alert h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .alert button {
+            background-color: #252525;
+            color: #aeff58;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+    <form action="https://raamvox-footwear.vercel.app/" name="login" onsubmit="return pass()">
+        <div><img style="height: 40px;" src="img/raamvox.png"></div>
+        <br>
+        <p>ADMIN LOGIN</p>
+        <br>
+        <div class="input-field">
+            <input type="text" name="USERNAME" placeholder="USERNAME" required>
+            <label></label>
+        </div>
+        <br>
+        <div class="input-field">
+            <input type="password" name="PASSWORD" placeholder="PASSWORD" required>
+            <label></label>
+        </div>
+        <br>
+        <button class="btn" type="submit">SUBMIT</button>
+    </form>
+</div>
+<div class="alert" id="customAlert">
+    <h2>Invalid Username or Password</h2>
+    <button onclick="document.getElementById('customAlert').style.display='none'">TRY AGAIN</button>
+</div>
+<script>
+    function pass() {
+        var USERNAME = document.login.USERNAME.value;
+        var PASSWORD = document.login.PASSWORD.value;
+        if (USERNAME != "sriraam" || PASSWORD != "2003") {
+            document.getElementById('customAlert').style.display = 'block';
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
